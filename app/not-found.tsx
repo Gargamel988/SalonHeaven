@@ -4,16 +4,7 @@ import { motion, Variants } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { Home, ArrowLeft, Search } from "lucide-react";
 import Link from "next/link";
-import { Metadata } from "next";
 
-export const metadata: Metadata = {
-	title: "Sayfa Bulunamadı - 404",
-	description: "Aradığınız sayfa bulunamadı.",
-	robots: {
-	  index: false, // 404 sayfalarını index'leme
-	  follow: true,
-	},
-  };
 export default function NotFound() {
   const router = useRouter();
 

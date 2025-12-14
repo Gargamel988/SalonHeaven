@@ -83,12 +83,7 @@ const gingerBrand = localFont({
   display: "swap",
 });
 
-const moonrising = localFont({
-  src: "../fonts/moonrising.ttf",
-  variable: "--font-moonrising",
-  preload: true,
-  display: "swap",
-});
+
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -157,7 +152,7 @@ export default function RootLayout({
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       </head>
-      <body className={`${gingerBrand.variable} ${moonrising.variable} ${cormorantGaramond.variable} ${interFont.className}`}>
+      <body className={`${gingerBrand.variable}  ${cormorantGaramond.variable} ${interFont.className}`}>
         <Providers>
           <Headers />
           <PageTransition>{children}</PageTransition>
