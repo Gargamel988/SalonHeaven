@@ -28,8 +28,11 @@ export default function BookingPage() {
 
   const sendToWhatsApp = (data: BookingFormData) => {
     // WhatsApp numarası - .env.local'den al veya direkt yaz
-    const whatsappNumber =
-      process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ; // Kendi numaranızı yazın
+    let whatsappNumber =
+      process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || ""; // Kendi numaranızı yazın
+
+    // Numarayı temizle (sadece rakamlar, + işareti kalsın)
+    whatsappNumber = whatsappNumber.replace(/[^\d+]/g, "");
 
     // Seçilen hizmetlerin listesi
     const servicesList = selectedServices
@@ -59,12 +62,22 @@ export default function BookingPage() {
 
     // Mobil cihaz tespiti
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
     // Mobilde WhatsApp uygulamasını aç, desktop'ta WhatsApp Web'i aç
     let whatsappUrl: string;
+    
     if (isMobile) {
-      // Mobil cihazlarda WhatsApp uygulamasını açmak için
-      whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+      // iOS için whatsapp:// protokolü (uygulamayı direkt açar ve mesajı gösterir)
+      if (isIOS) {
+        // iOS'ta numaradan + işaretini kaldır
+        const cleanNumber = whatsappNumber.replace(/\+/g, "");
+        whatsappUrl = `whatsapp://send?phone=${cleanNumber}&text=${encodedMessage}`;
+      } 
+      // Android ve diğer mobil cihazlar için wa.me (mesajı otomatik gösterir)
+      else {
+        whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+      }
     } else {
       // Desktop'ta WhatsApp Web'i aç
       whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
@@ -72,7 +85,18 @@ export default function BookingPage() {
 
     // Mobilde direkt yönlendirme, desktop'ta yeni sekmede aç
     if (isMobile) {
-      window.location.href = whatsappUrl;
+      if (isIOS) {
+        // iOS'ta whatsapp:// protokolü için
+        window.location.href = whatsappUrl;
+        // Fallback: Eğer WhatsApp açılmazsa api.whatsapp.com'a yönlendir
+        setTimeout(() => {
+          const cleanNumber = whatsappNumber.replace(/\+/g, "");
+          window.location.href = `https://api.whatsapp.com/send?phone=${cleanNumber}&text=${encodedMessage}`;
+        }, 1000);
+      } else {
+        // Android ve diğer mobil cihazlar için
+        window.location.href = whatsappUrl;
+      }
     } else {
       const whatsappWindow = window.open(whatsappUrl, "_blank");
       if (!whatsappWindow) {
