@@ -57,14 +57,27 @@ export default function BookingPage() {
     // URL encode
     const encodedMessage = encodeURIComponent(message);
 
-    // WhatsApp Web linki
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    // Mobil cihaz tespiti
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-    // Yeni sekmede WhatsApp'ı aç
-    const whatsappWindow = window.open(whatsappUrl, "_blank");
+    // Mobilde WhatsApp uygulamasını aç, desktop'ta WhatsApp Web'i aç
+    let whatsappUrl: string;
+    if (isMobile) {
+      // Mobil cihazlarda WhatsApp uygulamasını açmak için
+      whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+    } else {
+      // Desktop'ta WhatsApp Web'i aç
+      whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    }
 
-    if (!whatsappWindow) {
-      alert("Popup engellendi! Lütfen tarayıcı ayarlarından popup izni verin.");
+    // Mobilde direkt yönlendirme, desktop'ta yeni sekmede aç
+    if (isMobile) {
+      window.location.href = whatsappUrl;
+    } else {
+      const whatsappWindow = window.open(whatsappUrl, "_blank");
+      if (!whatsappWindow) {
+        alert("Popup engellendi! Lütfen tarayıcı ayarlarından popup izni verin.");
+      }
     }
   };
 
