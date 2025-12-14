@@ -1,0 +1,148 @@
+{
+	"services": [
+		{
+			"id": 1,
+			"category": "saç bakımı",
+			"name": "Fön",
+			"description": "Profesyonel fön hizmeti",
+			"price": 200,
+			"image": "/Fön.jpg"
+		},
+		{
+			"id": 2,
+			"category": "kaş & kirpik",
+			"name": "Kaş",
+			"description": "Kaş tasarımı ve şekillendirme",
+			"price": 100,
+			"image": "/kas.webp"
+		},
+		{
+			"id": 3,
+			"category": "el & ayak bakımı",
+			"name": "Manikür",
+			"description": "Profesyonel el bakımı ve oje",
+			"price": 400,
+			"image": "/manikur.jpg"
+		},
+		{
+			"id": 4,
+			"category": "el & ayak bakımı",
+			"name": "Pedikür",
+			"description": "Profesyonel ayak bakımı ve oje",
+			"price": 500,
+			"image": "/pedikur.jpeg"
+		},
+		{
+			"id": 5,
+			"category": "kaş & kirpik",
+			"name": "Komple Yüz alım",
+			"description": "Komple yüz bakımı",
+			"price": 300,
+			"image": "/images.jpg"
+		},
+		{
+			"id": 6,
+			"category": "saç bakımı",
+			"name": "Maşa",
+			"description": "Maşa ile saç şekillendirme",
+			"price": 400,
+			"image": "/masa.jpg"
+		},
+		{
+			"id": 7,
+			"category": "saç bakımı",
+			"name": "Keratin Başlangıç",
+			"description": "Keratin bakımı (uzunluğa göre değişiyor açıklamada uzunluğu belirtmeyi unutmayınız)",
+			"price": 1200,
+			"image": "/keratinbaslangıc.webp"
+		},
+		{
+			"id": 8,
+			"category": "saç boyama",
+			"name": "Ombre Paket",
+			"description": "Ombre saç boyama tek paket fiyatı",
+			"price": 200,
+			"image": "/ombre.jpeg"
+		},
+		{
+			"id": 9,
+			"category": "saç boyama",
+			"name": "Komple Ombre Başlangıç",
+			"description": "Komple ombre başlangıç paketi",
+			"price": 3000,
+			"image": "/kompleombre.webp"
+		},
+		{
+			"id": 10,
+			"category": "saç boyama",
+			"name": "Açma Boyama Başlangıç",
+			"description": "Açma ve boyama başlangıç paketi",
+			"price": 5000,
+			"image": "/boya.jpg"
+		},
+		{
+			"id": 11,
+			"category": "saç boyama",
+			"name": "Dip Boya",
+			"description": "Dip boyama hizmeti(renk seçimi açıklamada belirtmeyi unutmayınız)",
+			"price": 500,
+			"image": "/dipboya.jpg"
+		},
+		{
+			"id": 12,
+			"category": "saç boyama",
+			"name": "Tüm Boya Başlangıç",
+			"description": "Tüm saç boyama başlangıç paketi(renk seçimi açıklamada belirtmeyi unutmayınız)",
+			"price": 1000,
+			"image": "/boya2.jpg"
+		},
+		{
+			"id": 13,
+			"category": "saç bakımı",
+			"name": "Cila",
+			"description": "Cila bakım hizmeti",
+			"price": 400,
+			"image": "/cila.webp"
+		},
+		{
+		"id": 14,
+			"category": "epilasyon",
+			"name": "Komple Ağda",
+			"description": "Komple vücut ağda hizmeti",
+			"price": 1600,
+			"image": "/agda.jpg"
+		},
+		{
+			"id": 15,
+			"category": "lazer",
+			"name": "Lazer Komple Bayan",
+			"description": "Lazer epilasyon komple bayan (8+2 seans)",
+			"price": 12000,
+			"image": "/bayanlazer.webp"
+		},
+		{
+			"id": 16,
+			"category": "lazer",
+			"name": "Lazer Komple Bay",
+			"description": "Lazer epilasyon komple bay (8+2 seans)",
+			"price": 16000,
+			"image": "/baylazer.jpg"
+		},
+		{
+			"id": 17,
+			"category": "cilt bakımı",
+			"name": "Cilt Bakımı",
+			"description": "Profesyonel cilt bakımı",
+			"price": 800,
+			"image": "/ciltbakım.jpg"
+		},
+		{
+			"id": 18,
+			"category": "saç bakımı",
+			"name": "Kaynak",
+			"description": "Saç kaynak ekleme hizmeti (uzunluğa göre ücretlenme değişiyor açıklamada uzunluğu belirtmeyi unutmayınız)",
+			"price": 0,
+			"image": "/MicroKaynak.avif"
+		}
+	]
+}
