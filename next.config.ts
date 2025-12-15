@@ -45,22 +45,6 @@ const nextConfig: NextConfig = {
   // Compression
   compress: true,
 
-  // Redirects - www olmayan URL'leri www'ye yönlendir
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: '(?!www\\.)heavenkuafor\\.com',
-          },
-        ],
-        destination: 'https://www.heavenkuafor.com/:path*',
-        permanent: true,
-      },
-    ];
-  },
 
   // Experimental features for better performance
   experimental: {
