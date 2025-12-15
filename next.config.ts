@@ -53,10 +53,10 @@ const nextConfig: NextConfig = {
         has: [
           {
             type: 'host',
-            value: '(?!www\\.)heavensalon\\.com',
+            value: '(?!www\\.)heavenkuafor\\.com',
           },
         ],
-        destination: 'https://www.heavensalon.com/:path*',
+        destination: 'https://www.heavenkuafor.com/:path*',
         permanent: true,
       },
     ];

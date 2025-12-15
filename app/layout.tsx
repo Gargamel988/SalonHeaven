@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     canonical: "/"
   
   },
-  metadataBase: new URL("https://heavensalon.com"),
+  metadataBase: new URL("https://heavenkuafor.com"),
   icons: {
     icon: "/favicon.ico",
   },
@@ -112,7 +112,7 @@ export default function RootLayout({
     "@type": "BeautySalon",
     "name": "Heaven Salon",
     "description": "Antakya'nın en kaliteli güzellik ve bakım merkezi",
-    "url": "https://heavensalon.com",
+    "url": "https://heavenkuafor.com",
     "telephone": "+90-326-XXX-XXXX",
     "priceRange": "$$",
     
@@ -141,11 +141,8 @@ export default function RootLayout({
     ],
     
     "image": [
-      "https://heavensalon.com/salon-front.jpg",
-      "https://heavensalon.com/salon-inside.jpg"
+      "https://heavenkuafor.com/logo.png",
     ],
-    
-
   };
   return (
     <html lang="tr">

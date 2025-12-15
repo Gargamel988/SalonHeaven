@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: "Saç bakımı, cilt bakımı, epilasyon ve daha fazlası. Antakya'nın en kaliteli güzellik merkezi.",
     images: [
       {
-        url: "/og-services.jpg",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "Heaven Salon Hizmetler",

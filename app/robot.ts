@@ -9,6 +9,6 @@ export default function Robots(): MetadataRoute.Robots {
         disallow: ["/not-found"],
       },
     ],
-    sitemap: `https://heavensalon.com/sitemap.xml`,
+    sitemap: `https://heavenkuafor.com/sitemap.xml`,
   };
 }

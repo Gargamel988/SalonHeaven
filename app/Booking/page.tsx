@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: "Online randevu sistemi ile kolayca randevu oluşturun.",
     images: [
       {
-        url: "/og-booking.jpg",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "Heaven Salon Randevu",

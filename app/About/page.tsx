@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: "Antakya'da güzellik ve bakım sektöründe deneyimli ekibimiz ve değerlerimiz.",
     images: [
       {
-        url: "/og-about.jpg",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "Heaven Salon Hakkımızda",
