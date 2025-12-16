@@ -9,7 +9,6 @@ import { StaggeredMenuItem } from "./StaggeredMenu";
 export default function Headers() {
   const pathname = usePathname();
   
-  // Pathname'i normalize et (trailing slash'i kaldır, sadece "/" için koru)
   const normalizedPathname = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
 
   const containerVariants = {

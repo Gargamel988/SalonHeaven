@@ -118,7 +118,7 @@ export default function RootLayout({
     description: "Antakya'nın en kaliteli güzellik ve bakım merkezi",
     url: "https://heavenkuafor.com",
     telephone: "+905070314987",
-    priceRange: "$",
+    priceRange: "₺₺",
 
     address: {
       "@type": "PostalAddress",
@@ -132,8 +132,8 @@ export default function RootLayout({
 
     geo: {
       "@type": "GeoCoordinates",
-      latitude: "36.33236",
-      longitude: "36.20160",
+      latitude: 36.33236,
+      longitude: 36.20160,
     },
 
     openingHoursSpecification: [
