@@ -7,7 +7,10 @@ import { Metadata } from "next";
 
 // app/page.tsx
 export const metadata: Metadata = {
-  title: "Ana Sayfa", // template ile → "Heaven Salon | Ana Sayfa"
+  title: {
+    default: "Heaven Salon",
+    template: " Heaven Salon | %s ",
+  },
   description: "Antakya'nın en kaliteli güzellik ve bakım merkezi. Saç bakımı, cilt bakımı, epilasyon ve daha fazlası.",
   alternates: {
     canonical: "/",

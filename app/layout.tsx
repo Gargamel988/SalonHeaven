@@ -6,13 +6,13 @@ import Providers from "./providers";
 import localFont from "next/font/local";
 import { Cormorant_Garamond } from "next/font/google";
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { Metadata } from "next";
 import { Viewport } from "next";
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-
 };
 
 export const metadata: Metadata = {
@@ -20,7 +20,8 @@ export const metadata: Metadata = {
     default: "Heaven Salon",
     template: " Heaven Salon | %s ",
   },
-  description: "Antakya'nın en kaliteli güzellik ve bakım merkezi. Saç bakımı, cilt bakımı, epilasyon ve daha fazlası.",
+  description:
+    "Antakya'nın en kaliteli güzellik ve bakım merkezi. Saç bakımı, cilt bakımı, epilasyon ve daha fazlası.",
   keywords: [
     "Antakya kuaför",
     "Antakya güzellik salonu",
@@ -36,8 +37,7 @@ export const metadata: Metadata = {
     "Hatay'da lazer epilasyon",
   ],
   alternates: {
-    canonical: "/"
-  
+    canonical: "/",
   },
   metadataBase: new URL("https://heavenkuafor.com"),
   icons: {
@@ -75,15 +75,12 @@ export const metadata: Metadata = {
   },
 };
 
-
 const gingerBrand = localFont({
   src: "../fonts/GingerBrand.otf",
   variable: "--font-ginger-brand",
   preload: true,
   display: "swap",
 });
-
-
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
@@ -98,7 +95,14 @@ const interFont = Inter({
   display: "swap",
   preload: true,
   variable: "--font-inter",
-  fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"],
+  fallback: [
+    "system-ui",
+    "-apple-system",
+    "BlinkMacSystemFont",
+    "Segoe UI",
+    "Roboto",
+    "sans-serif",
+  ],
   adjustFontFallback: true,
 });
 
@@ -110,48 +114,59 @@ export default function RootLayout({
   const schema = {
     "@context": "https://schema.org",
     "@type": "BeautySalon",
-    "name": "Heaven Salon",
-    "description": "Antakya'nın en kaliteli güzellik ve bakım merkezi",
-    "url": "https://heavenkuafor.com",
-    "telephone": "+90-326-XXX-XXXX",
-    "priceRange": "$$",
-    
-    "address": {
+    name: "Heaven Salon",
+    description: "Antakya'nın en kaliteli güzellik ve bakım merkezi",
+    url: "https://heavenkuafor.com",
+    telephone: "+905070314987",
+    priceRange: "$",
+
+    address: {
       "@type": "PostalAddress",
-      "streetAddress": "Kurtuluş Caddesi No:123",
-      "addressLocality": "Antakya",
-      "addressRegion": "Hatay",
-      "postalCode": "31000",
-      "addressCountry": "TR"
+      streetAddress:
+        "Yağmur Apart, Zülüflühan Mahallesi, 2 Sokak, 31100 Antakya/Hatay",
+      addressLocality: "Antakya",
+      addressRegion: "Hatay",
+      postalCode: "31100",
+      addressCountry: "TR",
     },
-    
-    "geo": {
+
+    geo: {
       "@type": "GeoCoordinates",
-      "latitude": "36.2020",
-      "longitude": "36.1609"
+      latitude: "36.33236",
+      longitude: "36.20160",
     },
-    
-    "openingHoursSpecification": [
+
+    openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "09:00",
-        "closes": "19:00"
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Saturday", "Sunday"],
+        opens: "08:30",
+        closes: "22:30",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Thursday", "Friday"],
+        opens: "08:30",
+        closes: "17:30",
       },
     ],
-    
-    "image": [
-      "https://heavenkuafor.com/logo.png",
-    ],
+
+    image: ["https://heavenkuafor.com/logo.png"],
   };
   return (
     <html lang="tr">
       <head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
       </head>
-      <body className={`${gingerBrand.variable}  ${cormorantGaramond.variable} ${interFont.className}`}>
+      <body
+        className={`${gingerBrand.variable}  ${cormorantGaramond.variable} ${interFont.className}`}
+      >
         <Providers>
           <Headers />
+          <Analytics />
           <PageTransition>{children}</PageTransition>
           <Footer />
         </Providers>

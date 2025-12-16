@@ -8,6 +8,9 @@ import { StaggeredMenuItem } from "./StaggeredMenu";
 
 export default function Headers() {
   const pathname = usePathname();
+  
+  // Pathname'i normalize et (trailing slash'i kaldır, sadece "/" için koru)
+  const normalizedPathname = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
 
   const containerVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -122,15 +125,16 @@ export default function Headers() {
                   href={link.link}
                   prefetch={true}
                   className={`text-black group-hover:text-[#EE6983] transition-colors duration-200 whitespace-nowrap ${
-                    pathname === link.link ? "text-[#EE6983]" : ""
+                    normalizedPathname === link.link ? "text-[#EE6983]" : ""
                   }`}
                 >
                   {link.label}
                 </Link>
               </motion.div>
-              {pathname === link.link && (
+              {normalizedPathname === link.link && (
                 <motion.div
                   layoutId="activeBorder"
+                  initial={false}
                   className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#EE6983]"
                   transition={{ type: "spring", stiffness: 400, damping: 35 }}
                 />
