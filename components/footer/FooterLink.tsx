@@ -95,7 +95,14 @@ export default function FooterLink() {
           animate={{ rotate: [0, 10, -10, 0] }}
           transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
         >
-          <Image src="/logo.png" alt="logo" width={100} height={100} className="size-7 sm:size-8 md:size-10 lg:size-12 *:text-[#EE6983] rounded-full" />
+          <Image
+            src="/logo.webp"
+            alt="logo"
+            width={100}
+            height={100}
+            className="size-7 sm:size-8 md:size-10 lg:size-12 *:text-[#EE6983] rounded-full"
+            priority={true}
+          />
         </motion.div>
         <Link
           href="/"
@@ -171,4 +178,3 @@ export default function FooterLink() {
     </motion.div>
   );
 }
-

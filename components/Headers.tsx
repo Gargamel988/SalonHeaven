@@ -8,8 +8,9 @@ import { StaggeredMenuItem } from "./StaggeredMenu";
 
 export default function Headers() {
   const pathname = usePathname();
-  
-  const normalizedPathname = pathname === "/" ? "/" : pathname.replace(/\/$/, "");
+
+  const normalizedPathname =
+    pathname === "/" ? "/" : pathname.replace(/\/$/, "");
 
   const containerVariants = {
     hidden: { opacity: 0, y: -20 },
@@ -37,7 +38,7 @@ export default function Headers() {
     visible: { opacity: 1, x: 0, scale: 1 },
   };
 
-  const navLinks: { label: string, link: string }[] = [
+  const navLinks: { label: string; link: string }[] = [
     { label: "Anasayfa", link: "/" },
     { label: "Hizmetlerimiz", link: "/Services" },
     { label: "Hakkımızda", link: "/About" },
@@ -48,14 +49,17 @@ export default function Headers() {
     { label: "Hakkımızda", ariaLabel: "Hakkımızda", link: "/About" },
     { label: "Randevu Al", ariaLabel: "Randevu Al", link: "/Booking" },
   ];
-  const staggeredMenuItems = StaggeredMenuItems.map(link => ({
+  const staggeredMenuItems = StaggeredMenuItems.map((link) => ({
     label: link.label,
     ariaLabel: link.label,
     link: link.link,
   }));
 
   const staggeredMenuSocialItems: StaggeredMenuSocialItem[] = [
-    { label: "Instagram", link: "https://www.instagram.com/heavenn_beauty?utm_source=qr&igsh=dTQ0N3hzbG53bzRt" },
+    {
+      label: "Instagram",
+      link: "https://www.instagram.com/heavenn_beauty?utm_source=qr&igsh=dTQ0N3hzbG53bzRt",
+    },
     { label: "tiktok", link: "https://www.tiktok.com/@heaven_salon" },
   ];
 
@@ -66,7 +70,7 @@ export default function Headers() {
         <StaggeredMenu
           items={staggeredMenuItems}
           position="right"
-          colors={['#EE6983', '#DC7090', '#FF1770']}
+          colors={["#EE6983", "#DC7090", "#FF1770"]}
           accentColor="#EE6983"
           isFixed={true}
           displaySocials={true}
@@ -74,7 +78,7 @@ export default function Headers() {
           menuButtonColor="#EE6983"
           openMenuButtonColor="#000"
           changeMenuColorOnOpen={true}
-          logoUrl="/logo.png"
+          logoUrl="/logo.webp"
           closeOnClickAway={false}
           socialItems={staggeredMenuSocialItems}
         />
@@ -92,19 +96,27 @@ export default function Headers() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="flex items-center font-bold text-xl md:text-2xl gap-1.5 md:gap-2 "
         >
-
           <motion.div
             animate={{ rotate: [0, 10, -10, 0] }}
             transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-            >
-            <Image src="/logo.png" alt="logo" width={100} height={100}className="size-8 md:size-10 rounded-full lg:size-12 text-[#EE6983]"/>
-
+          >
+            <Image
+              src="/logo.webp"
+              alt="logo"
+              width={100}
+              height={100}
+              className="size-8 md:size-10 rounded-full lg:size-12 text-[#EE6983]"
+              priority={true}
+            />
           </motion.div>
-          <Link href="/" className="text-[#EE6983]  flex flex-col text-xl md:text-2xl">
+          <Link
+            href="/"
+            className="text-[#EE6983]  flex flex-col text-xl md:text-2xl"
+          >
             Salon<span>Heaven</span>
           </Link>
         </motion.div>
-        
+
         <motion.div
           variants={containerVariants}
           className="flex gap-4 md:gap-6 lg:gap-10 items-center font-family-cormorant-garamond text-base md:text-lg lg:text-xl"
@@ -113,7 +125,11 @@ export default function Headers() {
             <motion.div
               key={link.link}
               variants={navItemVariants}
-              transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.1,
+                ease: "easeOut",
+              }}
               className="group cursor-pointer p-1 md:p-2 relative"
             >
               <motion.div
@@ -141,7 +157,7 @@ export default function Headers() {
             </motion.div>
           ))}
         </motion.div>
-        
+
         <motion.div
           variants={buttonVariants}
           transition={{ duration: 0.5, ease: "easeOut" }}
@@ -151,14 +167,13 @@ export default function Headers() {
             boxShadow: "0 20px 40px rgba(244, 63, 94, 0.3)",
           }}
         >
-        
-            <Link
-              href="/Booking"
-              prefetch={true}
-              className="text-white p-2 md:p-3 whitespace-nowrap"
-            >
-              Hemen Randevu Al!
-            </Link>
+          <Link
+            href="/Booking"
+            prefetch={true}
+            className="text-white p-2 md:p-3 whitespace-nowrap"
+          >
+            Hemen Randevu Al!
+          </Link>
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-[#DC7090] via-[#EE6983] to-[#FF1770] opacity-0 group-hover:opacity-100"
             initial={{ x: "-100%" }}
