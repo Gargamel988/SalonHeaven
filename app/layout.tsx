@@ -41,7 +41,9 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL("https://heavenkuafor.com"),
   icons: {
-    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    icon: "/icon.png",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",
@@ -119,6 +121,7 @@ export default function RootLayout({
     url: "https://heavenkuafor.com",
     telephone: "+905070314987",
     priceRange: "₺₺",
+    logo: "https://heavenkuafor.com/icon.png",
 
     address: {
       "@type": "PostalAddress",
