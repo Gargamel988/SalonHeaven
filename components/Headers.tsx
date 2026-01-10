@@ -40,14 +40,14 @@ export default function Headers() {
 
   const navLinks: { label: string; link: string }[] = [
     { label: "Anasayfa", link: "/" },
-    { label: "Hizmetlerimiz", link: "/Services" },
-    { label: "Hakkımızda", link: "/About" },
+    { label: "Hizmetlerimiz", link: "/services" },
+    { label: "Hakkımızda", link: "/about" },
   ];
   const StaggeredMenuItems: StaggeredMenuItem[] = [
     { label: "Anasayfa", ariaLabel: "Anasayfa", link: "/" },
-    { label: "Hizmetlerimiz", ariaLabel: "Hizmetlerimiz", link: "/Services" },
-    { label: "Hakkımızda", ariaLabel: "Hakkımızda", link: "/About" },
-    { label: "Randevu Al", ariaLabel: "Randevu Al", link: "/Booking" },
+    { label: "Hizmetlerimiz", ariaLabel: "Hizmetlerimiz", link: "/services" },
+    { label: "Hakkımızda", ariaLabel: "Hakkımızda", link: "/about" },
+    { label: "Randevu Al", ariaLabel: "Randevu Al", link: "/booking" },
   ];
   const staggeredMenuItems = StaggeredMenuItems.map((link) => ({
     label: link.label,
@@ -139,9 +139,8 @@ export default function Headers() {
                 <Link
                   href={link.link}
                   prefetch={true}
-                  className={`text-black group-hover:text-[#EE6983] transition-colors duration-200 whitespace-nowrap ${
-                    normalizedPathname === link.link ? "text-[#EE6983]" : ""
-                  }`}
+                  className={`text-black group-hover:text-[#EE6983] transition-colors duration-200 whitespace-nowrap ${normalizedPathname === link.link ? "text-[#EE6983]" : ""
+                    }`}
                 >
                   {link.label}
                 </Link>
@@ -168,7 +167,7 @@ export default function Headers() {
           }}
         >
           <Link
-            href="/Booking"
+            href="/booking"
             prefetch={true}
             className="text-white p-2 md:p-3 whitespace-nowrap"
           >

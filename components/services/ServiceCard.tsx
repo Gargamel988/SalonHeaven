@@ -100,20 +100,20 @@ export default function ServiceCard({ service, tags, index }: ServiceCardProps) 
         </div>
 
         {/* Randevu Al Butonu */}
-          <motion.button
-            onClick={() => router.push("/Booking")}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1  }}
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 10px 25px rgba(238, 105, 131, 0.3)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="w-full cursor-pointer bg-gradient-to-r from-[#EE6983] to-[#FF1770] text-white py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold"
-          >
-            Randevu Al →
-          </motion.button>
+        <motion.button
+          onClick={() => router.push("/booking")}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.1 }}
+          whileHover={{
+            scale: 1.05,
+            boxShadow: "0 10px 25px rgba(238, 105, 131, 0.3)",
+          }}
+          whileTap={{ scale: 0.95 }}
+          className="w-full cursor-pointer bg-gradient-to-r from-[#EE6983] to-[#FF1770] text-white py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold"
+        >
+          Randevu Al →
+        </motion.button>
       </div>
     </motion.div>
   );
