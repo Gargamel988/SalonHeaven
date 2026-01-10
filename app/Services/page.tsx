@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Hizmetlerimiz",
   description: "Heaven Salon hizmetleri: Saç bakımı, saç boyama, cilt bakımı, el & ayak bakımı, kaş & kirpik, lazer ve epilasyon hizmetleri. Antakya'nın en kaliteli güzellik merkezi.",
   alternates: {
-    canonical: "/Services",
+    canonical: "/services",
   },
   openGraph: {
     title: "Hizmetlerimiz - Heaven Salon Antakya",

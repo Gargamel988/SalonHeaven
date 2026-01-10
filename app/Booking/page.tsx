@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Randevu Al",
   description: "Heaven Salon'da online randevu alın. Kolayca randevu oluşturun ve istediğiniz tarih ve saatte hizmetlerimizden yararlanın. Antakya'nın en kaliteli güzellik merkezi.",
   alternates: {
-    canonical: "/Booking",
+    canonical: "/booking",
   },
   openGraph: {
     title: "Randevu Al - Heaven Salon",

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Hakkımızda",
   description: "Heaven Salon hakkında bilgi edinin. Antakya'da güzellik ve bakım sektöründe deneyimli ekibimiz, değerlerimiz ve hikayemiz.",
   alternates: {
-    canonical: "/About",
+    canonical: "/about",
   },
   openGraph: {
     title: "Hakkımızda - Heaven Salon Antakya",
