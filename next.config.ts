@@ -9,7 +9,6 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
 
   // Trailing slash - URL'lerin sonuna / ekler
-  trailingSlash: true,
 
   // Image Optimization
   images: {
