@@ -4,11 +4,10 @@ import PageTransition from "@/components/PageTransition";
 import Footer from "@/components/Footer";
 import Providers from "./providers";
 import localFont from "next/font/local";
-import { Cormorant_Garamond } from "next/font/google";
-import { Inter } from "next/font/google";
+import { Metadata, Viewport } from "next";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { Metadata } from "next";
-import { Viewport } from "next";
+import { rootMetadata } from "@/lib/seo";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -16,65 +15,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: {
-    default: "Heaven Salon",
-    template: " Heaven Salon | %s ",
-  },
-  description:
-    "Antakya'nın en kaliteli güzellik ve bakım merkezi. Saç bakımı, cilt bakımı, epilasyon ve daha fazlası.",
-  keywords: [
-    "Antakya kuaför",
-    "Antakya güzellik salonu",
-    "Hatay kuaför",
-    "Antakya epilasyon",
-    "Antakya saç bakımı",
-    "Antakya cilt bakımı",
-    "Antakya manikür pedikür",
-    "Heaven Salon Antakya",
-    "Heaven Salon Hatay",
-    "Heaven Salon güzellik merkezi",
-    "Antakya'da en iyi kuaför",
-    "Hatay'da lazer epilasyon",
-  ],
-  alternates: {
-    canonical: "/",
-  },
-  metadataBase: new URL("https://heavenkuafor.com"),
-  icons: {
-    shortcut: "/favicon.ico",
-    icon: "/icon.png",
-    apple: "/apple-touch-icon.png",
-  },
-  openGraph: {
-    type: "website",
-    locale: "tr_TR",
-    title: "Heaven Salon",
-    description:
-      "Antakya'nın en kaliteli güzellik ve bakım merkezi. Saç bakımı, cilt bakımı, epilasyon ve daha fazlası.",
-    siteName: "Heaven Salon",
-    images: [
-      {
-        url: "/logo.png",
-        width: 1200,
-        height: 630,
-        alt: "Heaven Salon",
-        type: "image/png",
-      },
-    ],
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  ...rootMetadata,
 };
 
 const gingerBrand = localFont({

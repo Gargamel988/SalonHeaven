@@ -9,7 +9,20 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
 
   // Trailing slash - URL'lerin sonuna / ekler
+  trailingSlash: true,
 
+  // SEO için yönlendirmeler
+  async redirects() {
+    return [
+      {
+        // www'den non-www'ye yönlendirme
+        source: '/:path*',
+        has: [{ type: 'header', key: 'host', value: 'www.heavenkuafor.com' }],
+        destination: 'https://heavenkuafor.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
   // Image Optimization
   images: {
     remotePatterns: [
