@@ -17,12 +17,11 @@ const DEFAULT_OG_IMAGE = {
 // Helper to convert relative paths to absolute URLs
 const absoluteUrl = (pathOrUrl?: string) => {
   if (!pathOrUrl) return SITE_URL;
-  try {
-    // URL constructor handles trailing slashes correctly if path starts with /
-    return new URL(pathOrUrl, SITE_URL).toString();
-  } catch {
-    return SITE_URL;
-  }
+  if (pathOrUrl.startsWith("http")) return pathOrUrl;
+  
+  // URL constructor handles trailing slashes correctly if path starts with /
+  const normalizedPath = pathOrUrl.startsWith("/") ? pathOrUrl : `/${pathOrUrl}`;
+  return `${SITE_URL}${normalizedPath}`;
 };
 
 // Normalize image with defaults
@@ -37,7 +36,7 @@ const normalizeImage = (image?: OgImageDescriptor) => {
 };
 
 // Build canonical path with trailing slash (Matching next.config.ts)
-const buildCanonical = (path?: string) => {
+const buildCanonicalPath = (path?: string) => {
   if (!path || path === "/") return "/";
   // Ensure starts with / and ends with /
   let normalizedPath = path.startsWith("/") ? path : `/${path}`;
@@ -45,6 +44,22 @@ const buildCanonical = (path?: string) => {
     normalizedPath = `${normalizedPath}/`;
   }
   return normalizedPath;
+};
+
+// Build alternates with languages as per Rule #4
+const buildAlternates = (path: string) => {
+  const canonical = buildCanonicalPath(path);
+  const absoluteCanonical = absoluteUrl(canonical);
+
+  return {
+    canonical: canonical,
+    languages: {
+      "tr-TR": absoluteCanonical,
+      "en-US": absoluteUrl(`/en${canonical}`),
+      "de-DE": absoluteUrl(`/de${canonical}`),
+      "x-default": absoluteCanonical,
+    },
+  };
 };
 
 export const rootMetadata: Metadata = {
@@ -58,36 +73,26 @@ export const rootMetadata: Metadata = {
   creator: "Heaven Salon",
   publisher: "Heaven Salon",
   keywords: [
-    // Marka
     "Heaven Salon",
     "Heaven Salon Antakya",
     "Heaven Güzellik Merkezi Antakya",
-
-    // Kuaför
     "Antakya kuaför",
     "Hatay kuaför salonu",
     "Antakya bayan kuaför",
     "Antakya saç kesimi",
     "Antakya saç boyama",
     "Antakya keratin bakımı",
-
-    // Güzellik & Cilt
     "Antakya güzellik salonu",
     "Antakya cilt bakımı",
     "Antakya lazer epilasyon",
     "Antakya ağda epilasyon",
     "Antakya kaş tasarımı",
     "Antakya kalıcı makyaj",
-
-    // Tırnak
     "Antakya manikür",
     "Antakya pedikür",
     "Antakya kalıcı oje",
-
-    // Geniş coğrafya
     "Hatay güzellik merkezi",
     "Hatay epilasyon",
-    "Hatay güzellik merkezi",
     "Defne kuaför",
   ],
   icons: {
@@ -95,9 +100,7 @@ export const rootMetadata: Metadata = {
     icon: "/icon.png",
     apple: "/apple-touch-icon.png",
   },
-  alternates: {
-    canonical: "/",
-  },
+  alternates: buildAlternates("/"),
   openGraph: {
     type: "website",
     locale: "tr_TR",
@@ -148,13 +151,13 @@ type BuildMetadataOptions = {
 export const buildPageMetadata = ({
   title,
   description,
-  path,
+  path = "/",
   keywords,
   image,
   noIndex,
 }: BuildMetadataOptions): Metadata => {
   const metaDescription = description ?? DEFAULT_DESCRIPTION;
-  const canonicalPath = buildCanonical(path);
+  const canonicalPath = buildCanonicalPath(path);
   const ogImage = normalizeImage(image);
   const absoluteCanonical = absoluteUrl(canonicalPath);
 
@@ -162,9 +165,7 @@ export const buildPageMetadata = ({
     title,
     description: metaDescription,
     keywords,
-    alternates: {
-      canonical: canonicalPath,
-    },
+    alternates: buildAlternates(path),
     openGraph: {
       type: "website",
       siteName: SITE_SHORT_TITLE,
@@ -192,3 +193,4 @@ export const buildPageMetadata = ({
 
   return metadata;
 };
+

@@ -6,7 +6,7 @@ export default function Robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/not-found"],
+        disallow: ["/not-found", "/admin/", "/api/", "/dashboard/"],
       },
     ],
     sitemap: `https://heavenkuafor.com/sitemap.xml`,

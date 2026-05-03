@@ -8,6 +8,7 @@ import { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { rootMetadata } from "@/lib/seo";
+import JsonLd from "@/components/ui/JsonLd";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -100,10 +101,7 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
+        <JsonLd data={schema} />
       </head>
       <body
         className={`${gingerBrand.variable}  ${cormorantGaramond.variable} ${interFont.className}`}

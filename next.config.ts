@@ -15,10 +15,35 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        // www'den non-www'ye yönlendirme
+        // www'den non-www'ye ve HTTPS'e kalıcı yönlendirme
         source: '/:path*',
         has: [{ type: 'header', key: 'host', value: 'www.heavenkuafor.com' }],
         destination: 'https://heavenkuafor.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/about-us/',
+        destination: '/about/',
+        permanent: true,
+      },
+      {
+        source: '/hizmetlerimiz/',
+        destination: '/services/',
+        permanent: true,
+      },
+      {
+        source: '/randevu/',
+        destination: '/booking/',
+        permanent: true,
+      },
+      {
+        source: '/iletisim/',
+        destination: '/booking/',
+        permanent: true,
+      },
+      {
+        source: '/privacy-policy/',
+        destination: '/', // Redirect to home if no privacy page exists
         permanent: true,
       },
     ];
