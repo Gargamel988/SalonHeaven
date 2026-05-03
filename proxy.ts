@@ -8,7 +8,7 @@ import type { NextRequest } from 'next/server';
  * 3. Force Lowercase
  * 4. Force Trailing Slash
  */
-export function handleProxy(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const url = request.nextUrl.clone();
   const host = request.headers.get('host') || '';
   const protocol = request.headers.get('x-forwarded-proto') || 'http';
@@ -51,3 +51,19 @@ export function handleProxy(request: NextRequest) {
 
   return NextResponse.next();
 }
+
+// See "Matching Paths" below to learn more
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * - icon.png, apple-touch-icon.png (icons)
+     * - sitemap.xml, robots.txt (SEO files)
+     */
+    '/((?!api|_next/static|_next/image|favicon.ico|icon.png|apple-touch-icon.png|sitemap.xml|robots.txt).*)',
+  ],
+};
