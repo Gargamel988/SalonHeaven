@@ -13,6 +13,15 @@ export function proxy(request: NextRequest) {
   const host = request.headers.get('host') || '';
   const protocol = request.headers.get('x-forwarded-proto') || 'http';
   
+  // Skip internal Next.js paths and static assets
+  if (
+    url.pathname.startsWith('/_next') || 
+    url.pathname.includes('.') || 
+    url.pathname.startsWith('/api')
+  ) {
+    return NextResponse.next();
+  }
+
   let shouldRedirect = false;
 
   // 1. Force HTTPS
@@ -28,18 +37,14 @@ export function proxy(request: NextRequest) {
     shouldRedirect = true;
   }
 
-  // 3. Force Lowercase (excluding filenames with extensions)
-  if (!url.pathname.includes('.') && url.pathname !== url.pathname.toLowerCase()) {
+  // 3. Force Lowercase
+  if (url.pathname !== url.pathname.toLowerCase()) {
     url.pathname = url.pathname.toLowerCase();
     shouldRedirect = true;
   }
 
   // 4. Force Trailing Slash (Matching next.config.ts)
-  if (
-    !url.pathname.endsWith('/') && 
-    !url.pathname.includes('.') && 
-    url.pathname !== '/'
-  ) {
+  if (!url.pathname.endsWith('/') && url.pathname !== '/') {
     url.pathname = `${url.pathname}/`;
     shouldRedirect = true;
   }

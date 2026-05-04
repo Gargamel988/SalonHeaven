@@ -42,6 +42,8 @@ export default function HeroSection() {
 					fill
 					className="object-cover"
 					priority
+					loading="eager"
+					fetchPriority="high"
 				/>
 				<div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-[#EE6983]/40 " />
 			</div>

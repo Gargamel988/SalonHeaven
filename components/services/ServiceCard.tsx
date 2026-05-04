@@ -45,7 +45,9 @@ export default function ServiceCard({ service, tags, index }: ServiceCardProps) 
             alt={service.name}
             fill
             className="object-cover"
-            loading="lazy"
+            priority={index < 3}
+            loading={index < 3 ? "eager" : "lazy"}
+            fetchPriority={index < 3 ? "high" : "low"}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         </motion.div>
