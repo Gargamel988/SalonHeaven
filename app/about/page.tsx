@@ -14,7 +14,7 @@ export default function About() {
     <>
       <AboutSection />
       <ValuesSection />
-      <AboutTeam />
+      {/* <AboutTeam /> */}
     </>
   );
 }

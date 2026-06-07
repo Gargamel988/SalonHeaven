@@ -14,20 +14,7 @@ export default function AboutTeam() {
       initial: "G",
       gradient: "from-pink-400 to-pink-600",
     },
-    {
-      name: "Sevcan Okaya",
-      title: "Saç & Kıl Uzmanı",
-      experience: "10 yıl tecrübe",
-      initial: "S",
-      gradient: "from-purple-600 to-pink-500",
-    },
-    {
-      name: "İsmail Abatay",
-      title: "Saç Kaynak Uzmanı",
-      experience: "8 yıl tecrübe",
-      initial: "İ",
-      gradient: "from-pink-400 to-pink-600",
-    },
+
   ];
 
   const containerVariants = {
