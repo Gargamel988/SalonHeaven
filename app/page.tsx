@@ -3,9 +3,9 @@ import StatsAndWhySection from "@/components/home/StatsAndWhySection";
 import FeaturesSection from "@/components/home/FeaturesSection";
 import ImageComparisonSlider from "@/components/home/ImageComparisonSlider";
 import CTASection from "@/components/home/CTASection";
+import KeepAlive from "@/components/KeepAlive";
 import { Metadata } from "next";
 
-// app/page.tsx
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata = buildPageMetadata({
@@ -23,6 +23,7 @@ export default function Home() {
       <FeaturesSection />
       <ImageComparisonSlider />
       <CTASection />
+      <KeepAlive />
     </>
   );
 }

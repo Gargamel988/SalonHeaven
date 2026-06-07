@@ -23,22 +23,22 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/about-us/',
-        destination: '/about/',
+        destination: '/about',
         permanent: true,
       },
       {
         source: '/hizmetlerimiz/',
-        destination: '/services/',
+        destination: '/services',
         permanent: true,
       },
       {
         source: '/randevu/',
-        destination: '/booking/',
+        destination: '/booking',
         permanent: true,
       },
       {
         source: '/iletisim/',
-        destination: '/booking/',
+        destination: '/booking',
         permanent: true,
       },
       {
